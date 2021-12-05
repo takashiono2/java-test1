@@ -1,10 +1,13 @@
+//session 16
 public class MyApp{
-  public static void main(String[] args) {
-    // double d = 5234.231;
-    // int i = (int)d;
-    // System.out.println(i);
-    int i = 10;
-    double d = (double)i/4;
-    System.out.println(d);
+  // public static void main(String[] args) {
+  public static String sayHi(String name) {
+    // System.out.println("Hi!" + name);
+    return "Hi! " + name;
+  }
+
+  public static void main(String[] args){
+    String msg = sayHi("Steve");
+    System.out.println(msg);
   }
 }
