@@ -1,3 +1,75 @@
+//#27 final修飾子を使ってみよう
+//final: 変更ができない
+final class User {
+  protected String name;
+  private static final double VERSION = 1.1;
+
+  public User(String name) {
+    this.name = name;
+    User.VERSION = 1.2;
+  }
+
+  public final void sayHi() {
+    System.out.println("hi! " + this.name);
+  }
+}
+
+class AdminUser extends User {
+
+  public AdminUser(String name) {
+    super(name);
+  }
+
+  @Override
+  public void sayHi() {
+    System.out.println("[admin] hi! " + this.name);
+  }
+
+}
+
+public class MyApp {
+
+  public static void main(String[] args) {
+    User tom = new User("tom");
+  }
+
+}
+
+// #26 イニシャライズを使ってみよう
+// class User{
+//   private String name;
+//   private static int count;
+
+//   static {
+//     User.count = 0;
+//     System.out.println("Static initializer");
+//   }
+
+//   {
+//     System.out.println("Instance initializer");
+//   }
+
+//   public User(String name){
+//     this.name = name;
+//     User.count++;
+//     System.out.println("コンストラクタ");
+//   }
+
+//   public static void getInfo(){
+//     System.out.println("# of instances: " + User.count);
+//   }
+// }
+
+// public class MyApp{
+//   public static void main(String[] args) {
+//     User.getInfo();
+//     User tom = new User("tom");
+//     User.getInfo();
+//     User bob = new User("bob");
+//     User.getInfo();
+//   }
+// }
+
 //#25 static修飾子を使ってみよう
 // class User{
 //   private String name;
