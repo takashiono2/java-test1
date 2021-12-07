@@ -1,39 +1,123 @@
-//#27 final修飾子を使ってみよう
-//final: 変更ができない
-final class User {
-  protected String name;
-  private static final double VERSION = 1.1;
+// #30 列挙型を作ってみよう
 
-  public User(String name) {
-    this.name = name;
-    User.VERSION = 1.2;
-  }
-
-  public final void sayHi() {
-    System.out.println("hi! " + this.name);
-  }
-}
-
-class AdminUser extends User {
-
-  public AdminUser(String name) {
-    super(name);
-  }
-
-  @Override
-  public void sayHi() {
-    System.out.println("[admin] hi! " + this.name);
-  }
-
+enum Result{
+  SUCCESS,
+  ERROR,
 }
 
 public class MyApp {
-
   public static void main(String[] args) {
-    User tom = new User("tom");
-  }
+    Result res;
 
+    res = Result.ERROR;
+    switch(res){
+      case SUCCESS:
+        System.out.println("OK!");
+        System.out.println(res.ordinal());
+        break;
+      case ERROR:
+        System.out.println("NG!");
+        System.out.println(res.ordinal());
+        break;
+    }
+  }
 }
+
+// #29 インターフェースを作ってみよう
+
+// interface Printable{
+//   //定数
+//   double VERSION = 1.2;
+//   //抽象メソッド
+//   void print();
+//   //defaultメソッド
+//   public default void getInfo(){
+//     System.out.println("I/F ver. " + Printable.VERSION);
+//   }
+//   //staticメソッド
+// }
+
+// class User implements Printable {
+//   @Override
+//   public void print(){
+//     System.out.println("Now printing user profile...");
+//   }
+// }
+
+// public class MyApp {
+//   public static void main(String[] args) {
+//     User tom = new User();
+//     tom.print();
+//     tom.getInfo();
+//   }
+// }
+
+// #28 抽象クラスを使ってみよう
+
+// abstract class User {
+//   public abstract void sayHi();
+// }
+
+// class JapaneseUser extends User {
+//   @Override
+//   public void sayHi(){
+//     System.out.println("こんにちは！");
+//   }
+// }
+
+// class AmericanUser extends User {
+//   @Override
+//   public void sayHi(){
+//     System.out.println("Hi！");
+//   }
+// }
+
+// public class MyApp {
+
+//   public static void main(String[] args) {
+//     AmericanUser tom = new AmericanUser();
+//     JapaneseUser aki = new JapaneseUser();
+//     tom.sayHi();
+//     aki.sayHi();
+//   }
+// }
+
+//#27 final修飾子を使ってみよう
+//final: 変更ができない
+// final class User {
+//   protected String name;
+//   private static final double VERSION = 1.1;
+
+//   public User(String name) {
+//     this.name = name;
+//     User.VERSION = 1.2;
+//   }
+
+//   public final void sayHi() {
+//     System.out.println("hi! " + this.name);
+//   }
+// }
+
+// class AdminUser extends User {
+
+//   public AdminUser(String name) {
+//     super(name);
+//   }
+
+//   @Override
+//   public void sayHi() {
+//     System.out.println("[admin] hi! " + this.name);
+//   }
+
+// }
+
+// public class MyApp {
+
+//   public static void main(String[] args) {
+//     User tom = new User("tom");
+//   }
+
+// }
 
 // #26 イニシャライズを使ってみよう
 // class User{
