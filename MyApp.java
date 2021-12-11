@@ -1,27 +1,98 @@
-// #30 列挙型を作ってみよう
+// #33 ジェネリクス
 
-enum Result{
-  SUCCESS,
-  ERROR,
+// class MyInterger{
+//   public void getThree(int x){
+//     System.out.println(x);
+//     System.out.println(x);
+//     System.out.println(x);
+//   }
+// }
+
+class MyData<T>{
+  public void getThree(T x){
+    System.out.println(x);
+    System.out.println(x);
+    System.out.println(x);
+  }
 }
 
 public class MyApp {
-  public static void main(String[] args) {
-    Result res;
-
-    res = Result.ERROR;
-    switch(res){
-      case SUCCESS:
-        System.out.println("OK!");
-        System.out.println(res.ordinal());
-        break;
-      case ERROR:
-        System.out.println("NG!");
-        System.out.println(res.ordinal());
-        break;
-    }
+  public static void main(String[] args){
+    // MyInterger mi = new MyInterger();
+    // mi.getThree(55);
+    MyData<Integer> i = new MyData<>();
+    i.getThree(32);
+    MyData<String> s = new MyData<>();
+    s.getThree("hello");
   }
 }
+
+// // #32 ラッパークラスを使ってみよう
+// //int ・・・基本データ型
+// //Integert　・・・基本データ型に対するラッパークラス（参照型）
+// public class MyApp {
+//   public static void main(String[] args){
+//     Integer i = new Integer(32);
+//     //  32という基本データ型をラッパークラスにするには、
+//     //  ラッパークラス型でiを宣言し、Integerクラスのインスタンスを作りという基本データ型を渡す
+//     int n = i.intValue();
+//     //ラッパークラスの値を基本データ型として取り出すには、intで受けたいので、int nとしつつ、
+//     //iのintValue()とする。
+//     System.out.println();
+// }
+
+// #31 例外処理を扱ってみよう
+// class MyException extends Exception {
+//   public MyException(String s){
+//     super(s);
+//   }
+// }
+
+// public class MyApp {
+//   public static void div(int a,int b){
+//     try{
+//       if(b < 0){
+//         throw new MyException("not minus!");
+//       }
+//       System.out.println(a/b);
+//     } catch(ArithmeticException e){
+//       System.err.println(e.getMessage());
+//     } catch(MyException e){
+//       System.err.println(e.getMessage());
+//     } finally {
+//       System.err.println("-- end --");
+//     }
+//   }
+
+//   public static void main(String[] args) {
+//     div(3, 0);
+//     div(5, -2);
+//   }
+// }
+
+// #30 列挙型を作ってみよう
+// enum Result{
+//   SUCCESS,
+//   ERROR,
+// }
+
+// public class MyApp {
+//   public static void main(String[] args) {
+//     Result res;
+
+//     res = Result.ERROR;
+//     switch(res){
+//       case SUCCESS:
+//         System.out.println("OK!");
+//         System.out.println(res.ordinal());
+//         break;
+//       case ERROR:
+//         System.out.println("NG!");
+//         System.out.println(res.ordinal());
+//         break;
+//     }
+//   }
+// }
 
 // #29 インターフェースを作ってみよう
 
